@@ -11,6 +11,10 @@ class MyApp extends StatelessWidget {
   // properties
 
   // methods
+  void answerQuestion() {
+    print('Answer Chosen');
+  }
+
   @override
   Widget build(BuildContext context) {
     var questions = [
@@ -29,19 +33,24 @@ class MyApp extends StatelessWidget {
           // Deprecated but stick to it in this Project
           RaisedButton(
             child: Text("Answer 1"),
-            onPressed: null,
+            // 함수의 이름, 포인터를 알려줌.
+            // 함수() 그냥 넘겨주는게 아니라 실행 후 리턴 값을 넘겨주는 것..
+            onPressed: answerQuestion,
           ),
           RaisedButton(
             child: Text("Answer 2"),
-            onPressed: null,
+            onPressed: answerQuestion,
           ),
           RaisedButton(
             child: Text("Answer 3"),
-            onPressed: null,
+            onPressed: () {
+              print("Ans 3 Chosen");
+            },
           ),
           // alt of RaiseBtn
           ElevatedButton(
-            onPressed: null,
+            // 익명함수를 넘겨줄 수 있음.
+            onPressed: () => print("Elv clicked"),
             child: Text("Elv Btn"),
           )
         ]),
