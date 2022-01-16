@@ -14,21 +14,22 @@ class MyApp extends StatefulWidget {
   }
 }
 
+// underscore => public to private
 class _MyAppState extends State<MyApp> {
   // properties
-  var questionIndex = 0;
+  var _questionIndex = 0;
 
   // methods
-  void answerQuestion(int number) {
+  void _answerQuestion(int number) {
     setState(() {
-      questionIndex = number;
+      _questionIndex = number;
     });
     print('Answer ${number} Chosen');
   }
 
   @override
   Widget build(BuildContext context) {
-    var questions = [
+    var _questions = [
       "What\'s your favorite color?",
       'What\'s your favorite animal?',
       'What\'s your favorite movie?',
@@ -44,23 +45,23 @@ class _MyAppState extends State<MyApp> {
         body: Column(
           children: [
             Text(
-              questions[questionIndex],
+              _questions[_questionIndex],
             ),
             // Deprecated but stick to it in this Project
             RaisedButton(
               child: Text("Answer 1"),
               // 함수의 이름, 포인터를 알려줌.
               // 함수() 그냥 넘겨주는게 아니라 실행 후 리턴 값을 넘겨주는 것..
-              onPressed: () => answerQuestion(0),
+              onPressed: () => _answerQuestion(0),
             ),
             RaisedButton(
               child: Text("Answer 2"),
-              onPressed: () => answerQuestion(1),
+              onPressed: () => _answerQuestion(1),
             ),
             RaisedButton(
               child: Text("Answer 3"),
               onPressed: () {
-                answerQuestion(2);
+                _answerQuestion(2);
               },
             ),
             // alt of RaiseBtn
