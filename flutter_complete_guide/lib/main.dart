@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './question.dart';
+
 // void main() {
 //   // Instanciationg MyApp()
 //   runApp(MyApp());
@@ -29,7 +31,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    var _questions = [
+    var questions = [
       "What\'s your favorite color?",
       'What\'s your favorite animal?',
       'What\'s your favorite movie?',
@@ -44,8 +46,8 @@ class _MyAppState extends State<MyApp> {
         // Column: vertical direction container
         body: Column(
           children: [
-            Text(
-              _questions[_questionIndex],
+            Question(
+              questions[_questionIndex],
             ),
             // Deprecated but stick to it in this Project
             RaisedButton(
